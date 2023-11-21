@@ -9,14 +9,14 @@ function generateUniqueName() {
 }
 
 async function pushRandomCatName(repoOwner, token) {
-    const octokit = new Octokit({ auth:token });
+    const octokit = new Octokit({ auth: token });
 
 
     try {
 
         const branchFilesData = await octokit.rest.repos.getContent({
           owner: repoOwner,
-          repo: 'randomCatsFacts',
+          repo: 'randomCatFacts',
           branch: 'main',
         });
     
@@ -35,8 +35,6 @@ async function pushRandomCatName(repoOwner, token) {
           pushRandomCatName(repoOwner, token);
         }
 
-
-
         await octokit.rest.repos.createOrUpdateFileContents({
             owner: repoOwner,
             repo: 'randomCatFacts',
@@ -50,10 +48,6 @@ async function pushRandomCatName(repoOwner, token) {
         console.error('im loh', error);
     }
 }
-
-
-
-
 
 function startExecution() {
     gitTokens.forEach((token, index) => {
