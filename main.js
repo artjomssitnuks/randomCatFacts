@@ -38,7 +38,7 @@ async function pushRandomCatName(repoOwner, token) {
         await octokit.rest.repos.createOrUpdateFileContents({
             owner: repoOwner,
             repo: 'randomCatFacts',
-            path: randomeName,
+            path: randomName,
             message: 'im dumb',
             content: ArrayBuffer.from(fact).toString('base64'),
             branch: 'main'
