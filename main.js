@@ -27,7 +27,7 @@ async function pushRandomCatName(repoOwner, token) {
     
         let randomName = generateUniqueName();
     
-        const isAlreadyFileNameExist = !!branchFileData.data.find((user) => {
+        const isAlreadyFileNameExist = !!branchFilesData.data.find((user) => {
           return user.path === randomName;
         });
     
