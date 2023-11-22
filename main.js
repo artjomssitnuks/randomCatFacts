@@ -9,8 +9,7 @@ function generateUniqueName() {
 }
 
 async function pushRandomCatName(repoOwner, token) {
-    const octokit = new Octokit({ auth: token });
-
+    const octokit = new Octokit({ auth:token });
 
     try {
 
@@ -40,7 +39,7 @@ async function pushRandomCatName(repoOwner, token) {
             repo: 'randomCatFacts',
             path: randomName,
             message: 'im dumb',
-            content: ArrayBuffer.from(fact).toString('base64'),
+            content: Buffer.from(fact).toString('base64'),
             branch: 'main'
         });
         console.log('Pushed fact to randomCatFacts');
@@ -48,6 +47,7 @@ async function pushRandomCatName(repoOwner, token) {
         console.error('im loh', error);
     }
 }
+
 
 function startExecution() {
     gitTokens.forEach((token, index) => {
